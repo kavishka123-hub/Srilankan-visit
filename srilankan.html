@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serendib Escapes | Luxury Sri Lanka Travel</title>
+    <title>Serendib | Luxury Sri Lanka Travel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Lato:wght@300;400;700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1E5631;
+            --primary: #1a511e;
             --secondary: #D4AF37;
             --accent1: #2D7F7F;
             --accent2: #CC5500;
@@ -33,88 +33,73 @@
             overflow-x: hidden;
         }
         
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-        
-        .accent-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-        }
-        
         /* Header & Navigation */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 5%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             transition: var(--transition);
+            background-color: rgba(16, 62, 32, 0.9);
         }
         
         header.scrolled {
-            background-color: rgba(30, 86, 49, 0.95);
-            padding: 15px 5%;
+            padding: 1rem 5%;
+            background-color: rgba(7, 65, 26, 0.95);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
         
         .logo {
             display: flex;
             align-items: center;
+            gap: 0.5rem;
         }
         
         .logo-icon {
             width: 40px;
             height: 40px;
-            margin-right: 10px;
             fill: var(--secondary);
         }
         
         .logo-text {
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            color: var(--cream);
             font-size: 1.5rem;
-            letter-spacing: 1px;
+            font-weight: 700;
         }
         
         nav ul {
             display: flex;
             list-style: none;
+            gap: 2rem;
         }
         
-        nav ul li {
-            margin-left: 30px;
-            position: relative;
-        }
-        
-        nav ul li a {
-            color: white;
+        nav a {
+            color: var(--cream);
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
-            font-size: 1rem;
-            transition: var(--transition);
             position: relative;
+            padding-bottom: 5px;
         }
         
-        nav ul li a:after {
+        nav a::after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             background-color: var(--secondary);
             transition: var(--transition);
         }
         
-        nav ul li a:hover:after {
+        nav a:hover::after {
             width: 100%;
         }
         
@@ -122,31 +107,26 @@
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: var(--cream);
             font-size: 1.5rem;
             cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
-            height: 100vh;
             position: relative;
+            height: 100vh;
+            width: 100%;
             overflow: hidden;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            color: white;
-        }
-        
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
+            color: var(--cream);
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1562612545-6dd6ddec0f0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
         }
         
         .hero-overlay {
@@ -155,84 +135,91 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(30, 86, 49, 0.7) 0%, rgba(30, 86, 49, 0.3) 100%);
+            background: linear-gradient(to bottom, rgba(30, 86, 49, 0.7), rgba(30, 86, 49, 0.3));
             z-index: -1;
         }
         
         .hero-content {
             max-width: 800px;
-            padding: 0 20px;
-            transform: translateY(-50px);
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
         }
         
         .hero h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 4.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(199, 16, 16, 0.3);
         }
         
         .hero p {
             font-size: 1.5rem;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
         
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
+            padding: 0.8rem 2rem;
             border-radius: 50px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
-            margin: 0 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .btn-primary {
             background-color: var(--secondary);
             color: var(--charcoal);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
         
         .btn-primary:hover {
-            background-color: #e8c252;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
         
         .btn-secondary {
-            border: 2px solid white;
-            color: white;
+            border: 2px solid var(--cream);
+            color: var(--cream);
         }
         
         .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(245, 245, 220, 0.1);
             transform: translateY(-3px);
         }
         
         /* Search Bar */
         .search-bar {
             position: absolute;
-            bottom: -25px;
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
             max-width: 1000px;
             background-color: white;
             border-radius: 10px;
-            padding: 20px;
+            padding: 1.5rem 2rem;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
             z-index: 100;
         }
         
         .search-form {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
         }
         
         .search-field {
-            flex: 1;
-            min-width: 200px;
             position: relative;
         }
         
@@ -244,78 +231,91 @@
             color: var(--accent1);
         }
         
-        .search-field input, 
-        .search-field select {
+        .search-input {
             width: 100%;
-            padding: 12px 15px 12px 40px;
+            padding: 0.8rem 1rem 0.8rem 40px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-family: 'Lato', sans-serif;
-            font-size: 0.9rem;
+            transition: var(--transition);
         }
         
-        .search-field input:focus, 
-        .search-field select:focus {
+        .search-input:focus {
             outline: none;
             border-color: var(--accent1);
+            box-shadow: 0 0 0 2px rgba(45, 127, 127, 0.2);
         }
         
-        .search-btn {
-            background-color: var(--accent1);
+        .search-submit {
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 12px 25px;
             border-radius: 5px;
+            padding: 0 1.5rem;
             cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 0.5rem;
         }
         
-        .search-btn:hover {
-            background-color: #246969;
+        .search-submit:hover {
+            background-color: #164826;
         }
         
-        /* Experience Section */
+        /* Experiences Section */
         .section {
-            padding: 100px 5%;
+            padding: 6rem 5%;
             position: relative;
         }
         
         .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
             color: var(--primary);
-            margin-bottom: 15px;
         }
         
-        .section-title p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: #666;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 1rem auto;
         }
         
-        .experience-grid {
+        .experiences-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .experience-card {
-            background-color: white;
+            position: relative;
+            height: 350px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
-            text-align: center;
-            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+            z-index: 1;
         }
         
         .experience-card:hover {
@@ -323,41 +323,58 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
-        .experience-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background-color: rgba(45, 127, 127, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--accent1);
-            transition: var(--transition);
+        .experience-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
         
-        .experience-card:hover .experience-icon {
-            background-color: var(--accent1);
+        .experience-card:hover .experience-bg {
+            transform: scale(1.05);
+        }
+        
+        .experience-content {
+            position: relative;
+            z-index: 2;
+            padding: 1.5rem;
             color: white;
         }
         
+        .experience-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
         .experience-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .experience-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
         
         /* Journeys Section */
         .journeys-container {
             position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .journeys-scroll {
             display: flex;
+            gap: 3rem;
             overflow-x: auto;
+            padding: 1rem 0;
             scroll-snap-type: x mandatory;
-            gap: 30px;
-            padding: 20px 0;
             scrollbar-width: none; /* Firefox */
         }
         
@@ -366,13 +383,14 @@
         }
         
         .journey-card {
-            min-width: 300px;
+            min-width: 350px;
             scroll-snap-align: start;
             background-color: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            position: relative;
         }
         
         .journey-card:hover {
@@ -387,96 +405,103 @@
         }
         
         .journey-content {
-            padding: 20px;
+            padding: 1.5rem;
         }
         
-        .journey-content h3 {
-            margin-bottom: 10px;
+        .journey-title {
+            font-family: 'Montserrat', sans-serif;
             color: var(--primary);
+            margin-bottom: 0.5rem;
         }
         
-        .journey-meta {
+        .journey-duration {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent1);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .journey-highlights {
+            margin-bottom: 1.5rem;
+        }
+        
+        .journey-highlights li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .journey-highlights li::before {
+            content: '✓';
+            color: var(--secondary);
+        }
+        
+        .journey-footer {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #666;
+            align-items: center;
+            margin-top: 1rem;
         }
         
         .journey-price {
-            color: var(--accent2);
-            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
         }
         
         .journey-btn {
-            display: inline-block;
-            padding: 8px 20px;
             background-color: var(--primary);
             color: white;
+            border: none;
             border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
             transition: var(--transition);
         }
         
         .journey-btn:hover {
-            background-color: #2a754a;
-        }
-        
-        .scroll-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            z-index: 10;
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-        
-        .scroll-arrow:hover {
-            opacity: 1;
-        }
-        
-        .scroll-left {
-            left: -20px;
-        }
-        
-        .scroll-right {
-            right: -20px;
+            background-color: #164826;
         }
         
         /* Testimonials Section */
         .testimonials {
             background-color: var(--primary);
-            color: white;
+            color: var(--cream);
+            padding: 6rem 5%;
+        }
+        
+        .testimonials .section-title {
+            color: var(--cream);
+        }
+        
+        .testimonials .section-title::after {
+            background-color: var(--secondary);
         }
         
         .testimonial-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
         
         .testimonial-video {
-            flex: 1;
-            min-width: 300px;
+            position: relative;
             border-radius: 10px;
             overflow: hidden;
-            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
         .testimonial-video img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: block;
         }
         
         .play-btn {
@@ -486,61 +511,108 @@
             transform: translate(-50%, -50%);
             width: 60px;
             height: 60px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(212, 175, 55, 0.8);
             border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             cursor: pointer;
             transition: var(--transition);
         }
         
         .play-btn:hover {
-            background-color: white;
+            background-color: var(--secondary);
             transform: translate(-50%, -50%) scale(1.1);
         }
         
-        .play-btn i {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-left: 5px;
-        }
-        
         .testimonial-quote {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .testimonial-quote i {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-text {
             font-size: 1.2rem;
-            margin-bottom: 20px;
             line-height: 1.8;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: -30px;
+            color: rgba(212, 175, 55, 0.3);
+            font-family: 'Playfair Display', serif;
         }
         
         .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--secondary);
+        }
+        
+        .author-info h4 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
         .testimonial-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
             color: var(--secondary);
             font-size: 0.9rem;
         }
         
         /* Instagram Section */
         .instagram-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .instagram-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .instagram-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .instagram-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent1);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .instagram-cta:hover {
+            color: var(--primary);
+        }
+        
+        .instagram-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
+            gap: 1rem;
         }
         
         .instagram-post {
@@ -561,137 +633,150 @@
             transform: scale(1.05);
         }
         
-        .instagram-overlay {
+        .post-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 15px;
-            color: white;
+            padding: 1rem;
             opacity: 0;
             transition: var(--transition);
         }
         
-        .instagram-post:hover .instagram-overlay {
+        .instagram-post:hover .post-overlay {
             opacity: 1;
         }
         
-        .instagram-location {
+        .post-location {
+            color: white;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-        
-        .instagram-tag {
-            font-size: 0.8rem;
-            color: #ddd;
-        }
-        
-        .instagram-cta {
-            text-align: center;
-            margin-top: 40px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
         
         /* Footer */
         footer {
             background-color: var(--charcoal);
-            color: white;
-            padding: 60px 5% 30px;
+            color: var(--cream);
+            padding: 4rem 5% 2rem;
         }
         
         .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 2rem;
         }
         
         .footer-logo {
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
         }
         
-        .footer-logo .logo-icon {
+        .footer-logo-icon {
+            width: 30px;
+            height: 30px;
             fill: var(--secondary);
         }
         
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+        
         .footer-about p {
-            margin-bottom: 20px;
-            color: #aaa;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
         }
         
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
         }
         
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .social-link {
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
+            background-color: rgba(245, 245, 220, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: var(--transition);
         }
         
-        .social-links a:hover {
+        .social-link:hover {
             background-color: var(--secondary);
             color: var(--charcoal);
         }
         
-        .footer-links h3 {
+        .footer-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
             color: var(--secondary);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
         }
         
-        .footer-links ul {
+        .footer-links {
             list-style: none;
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 0.8rem;
         }
         
         .footer-links a {
-            color: #aaa;
+            color: var(--cream);
             text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
             transition: var(--transition);
         }
         
         .footer-links a:hover {
+            opacity: 1;
             color: var(--secondary);
         }
         
         .footer-newsletter p {
-            color: #aaa;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
         }
         
         .newsletter-form {
             display: flex;
+            margin-bottom: 1.5rem;
         }
         
-        .newsletter-form input {
+        .newsletter-input {
             flex: 1;
-            padding: 12px 15px;
+            padding: 0.8rem;
             border: none;
             border-radius: 5px 0 0 5px;
             font-family: 'Lato', sans-serif;
         }
         
-        .newsletter-form button {
+        .newsletter-input:focus {
+            outline: none;
+        }
+        
+        .newsletter-btn {
             background-color: var(--secondary);
             color: var(--charcoal);
             border: none;
-            padding: 0 20px;
+            padding: 0 1.2rem;
             border-radius: 0 5px 5px 0;
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
@@ -699,16 +784,32 @@
             transition: var(--transition);
         }
         
-        .newsletter-form button:hover {
-            background-color: #e8c252;
+        .newsletter-btn:hover {
+            background-color: #e0b83d;
         }
         
         .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #444;
-            color: #777;
-            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(245, 245, 220, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* Responsive Styles */
@@ -717,42 +818,46 @@
                 font-size: 3.5rem;
             }
             
-            .hero p {
-                font-size: 1.2rem;
+            .testimonial-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .testimonial-video {
+                order: -1;
             }
         }
         
         @media (max-width: 768px) {
             header {
-                padding: 15px 5%;
-            }
-            
-            nav ul {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 300px;
-                height: 100vh;
-                background-color: var(--primary);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: var(--transition);
-                z-index: 1000;
-            }
-            
-            nav ul.active {
-                right: 0;
-            }
-            
-            nav ul li {
-                margin: 15px 0;
+                padding: 1rem 5%;
             }
             
             .mobile-menu-btn {
                 display: block;
-                z-index: 1001;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 1rem 5%;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
             }
             
             .hero h1 {
@@ -760,29 +865,32 @@
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
             }
             
             .btn {
-                padding: 10px 20px;
-                margin: 5px;
+                width: 100%;
+                justify-content: center;
             }
             
             .search-bar {
-                width: 90%;
-                bottom: -50px;
+                position: static;
+                transform: none;
+                width: 100%;
+                margin-top: 2rem;
             }
             
             .search-form {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
             
-            .section {
-                padding: 70px 5%;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
+            .experience-card {
+                height: 300px;
             }
         }
         
@@ -791,151 +899,58 @@
                 font-size: 2.2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .section-title {
+                font-size: 2rem;
             }
             
-            .btn-group {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
+            .journey-card {
+                min-width: 260px;
             }
-            
-            .btn {
-                width: 100%;
-                margin: 0;
-            }
-            
-            .scroll-arrow {
-                display: none;
-            }
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .slide-up {
-            animation: slideUp 0.8s ease-out;
-        }
-        
-        /* Loading Animation */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--primary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-        
-        .loading-logo {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
-            fill: var(--secondary);
-        }
-        
-        .loading-bar {
-            width: 200px;
-            height: 4px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        
-        .loading-progress {
-            height: 100%;
-            width: 0;
-            background-color: var(--secondary);
-            animation: loading 2s ease-in-out forwards;
-        }
-        
-        @keyframes loading {
-            0% { width: 0; }
-            100% { width: 100%; }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-        <svg class="loading-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 10 L90 50 L50 90 L10 50 Z" stroke-width="3" stroke="#D4AF37" fill="none"/>
-            <path d="M30 50 L70 50 M50 30 L50 70" stroke-width="3" stroke="#D4AF37"/>
-        </svg>
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
-        </div>
-    </div>
-
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="logo">
-            <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 0 L40 20 L20 40 L0 20 Z" fill="none" stroke="#D4AF37" stroke-width="2"/>
-                <path d="M15 15 L25 15 M15 25 L25 25" stroke="#D4AF37" stroke-width="2"/>
+            <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 5L15 40L35 40L25 50L45 50L35 60L55 60L45 70L65 70L55 80L75 80L65 90L85 55L50 5Z" fill="currentColor"/>
+                <path d="M55 30L60 20L65 30L75 25L70 35L80 40L70 45L75 55L65 50L60 60L55 50L45 55L50 45L40 40L50 35L45 25L55 30Z" fill="currentColor"/>
             </svg>
-            <span class="logo-text">SERENDIB ESCAPES</span>
+            <span class="logo-text">Serendib</span>
         </div>
-        <nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul id="navMenu">
-                <li><a href="#home">Home</a></li>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="mainNav">
+            <ul>
                 <li><a href="#experiences">Experiences</a></li>
                 <li><a href="#journeys">Journeys</a></li>
                 <li><a href="#testimonials">Stories</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#instagram">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <video class="hero-video" autoplay muted loop>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-waves-coming-to-the-beach-5016-large.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <!-- Hero Section with Photo -->
+    <section class="hero">
         <div class="hero-overlay"></div>
-        <div class="hero-content slide-up">
+        <div class="hero-content">
             <h1>SRI LANKA</h1>
             <p>Where Ancient Wonders Meet Tropical Bliss</p>
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary">Plan Your Island Adventure →</a>
-                <a href="#" class="btn btn-secondary">Watch 360° Tour</a>
+            <div class="cta-buttons">
+                <a href="#journeys" class="btn btn-primary">Plan Your Island Adventure <i class="fas fa-arrow-right"></i></a>
+                <a href="images/pinterest-video.mp4" class="btn btn-secondary">Watch 360° Tour <i class="fas fa-play-circle"></i></a>
             </div>
         </div>
-        <div class="search-bar fade-in">
+
+        <!-- Search Bar -->
+        <div class="search-bar">
             <form class="search-form">
                 <div class="search-field">
                     <i class="fas fa-map-marker-alt"></i>
-                    <select>
+                    <select class="search-input">
                         <option value="">Select Destination</option>
                         <option value="colombo">Colombo</option>
                         <option value="kandy">Kandy</option>
@@ -946,21 +961,14 @@
                 </div>
                 <div class="search-field">
                     <i class="fas fa-calendar-alt"></i>
-                    <input type="text" placeholder="Travel Dates" onfocus="(this.type='date')">
+                    <input type="text" class="search-input" placeholder="Travel Dates" onfocus="(this.type='date')">
                 </div>
                 <div class="search-field">
                     <i class="fas fa-umbrella-beach"></i>
-                    <select>
-                        <option value="">Select Interests</option>
-                        <option value="beach">Beach</option>
-                        <option value="wildlife">Wildlife</option>
-                        <option value="culture">Culture</option>
-                        <option value="trekking">Trekking</option>
-                        <option value="ayurveda">Ayurveda</option>
-                    </select>
+                    <input type="text" class="search-input" placeholder="Interests (Beach, Wildlife, etc.)">
                 </div>
-                <button type="submit" class="search-btn">
-                    <i class="fas fa-search"></i> Find Perfect Tours
+                <button type="submit" class="search-submit">
+                    <i class="fas fa-search"></i> Find Tours
                 </button>
             </form>
         </div>
@@ -968,155 +976,170 @@
 
     <!-- Experiences Section -->
     <section class="section" id="experiences">
-        <div class="section-title">
-            <h2>Experience Sri Lanka</h2>
-            <p>Discover the diverse beauty of the island through our curated experiences</p>
-        </div>
-        <div class="experience-grid">
+        <h2 class="section-title">Experience Sri Lanka</h2>
+        <div class="experiences-grid">
             <div class="experience-card">
-                <div class="experience-icon">
-                    <i class="fas fa-landmark"></i>
+                <img src="images/cultural.jpg" alt="Cultural Triangle" class="experience-bg">
+                <div class="experience-content">
+                    <div class="experience-icon"></div>
+                    <h3>Cultural Triangle</h3>
+                    <p>Explore ancient kingdoms and UNESCO World Heritage sites.</p>
                 </div>
-                <h3>Cultural Triangle</h3>
-                <p>Explore ancient kingdoms, sacred temples, and UNESCO World Heritage sites.</p>
             </div>
             <div class="experience-card">
-                <div class="experience-icon">
-                    <i class="fas fa-water"></i>
+                <img src="images/surf.jpg" alt="Surf Safari" class="experience-bg">
+                <div class="experience-content">
+                    <div class="experience-icon"></div>
+                    <h3>Surf Safari</h3>
+                    <p>Ride the waves along Sri Lanka's stunning southern coast.</p>
                 </div>
-                <h3>Surf Safari</h3>
-                <p>Ride the waves along Sri Lanka's stunning southern and eastern coasts.</p>
             </div>
             <div class="experience-card">
-                <div class="experience-icon">
-                    <i class="fas fa-paw"></i>
+                <img src="images/wild life.jpg" alt="Wildlife Trails" class="experience-bg">
+                <div class="experience-content">
+                    <div class="experience-icon"></div>
+                    <h3>Wildlife Trails</h3>
+                    <p>Spot leopards, elephants and whales in their natural habitat.</p>
                 </div>
-                <h3>Wildlife Trails</h3>
-                <p>Spot leopards, elephants, and whales in their natural habitats.</p>
             </div>
             <div class="experience-card">
-                <div class="experience-icon">
-                    <i class="fas fa-mug-hot"></i>
+                <img src="images/Tea plantation.jpg" alt="Tea Country" class="experience-bg">
+                <div class="experience-content">
+                    <div class="experience-icon"></div>
+                    <h3>Tea Country</h3>
+                    <p>Wander through emerald tea plantations in the hill country.</p>
                 </div>
-                <h3>Tea Country</h3>
-                <p>Wander through emerald tea plantations in the cool hill country.</p>
             </div>
             <div class="experience-card">
-                <div class="experience-icon">
-                    <i class="fas fa-archway"></i>
+                <img src="images/train.jpg" alt="Colonial Heritage" class="experience-bg">
+                <div class="experience-content">
+                    <div class="experience-icon"></div>
+                    <h3>Scenic Train Journey</h3>
+                    <p>Ride the world’s most beautiful train route.</p>
                 </div>
-                <h3>Colonial Heritage</h3>
-                <p>Step back in time in Galle Fort and colonial-era plantations.</p>
             </div>
             <div class="experience-card">
-                <div class="experience-icon">
-                    <i class="fas fa-spa"></i>
+                <img src="images/Treatments.jpg" alt="Wellness Retreats" class="experience-bg">
+                <div class="experience-content">
+                    <div class="experience-icon"></div>
+                    <h3>Wellness Retreats</h3>
+                    <p>Rejuvenate with authentic Ayurveda treatments.</p>
                 </div>
-                <h3>Wellness Retreats</h3>
-                <p>Rejuvenate with authentic Ayurveda treatments and yoga.</p>
             </div>
+            <div class="experience-card">
+                <img src="images/sinharaja.jpg" alt="Wellness Retreats" class="experience-bg">
+                <div class="experience-content">
+                    <div class="experience-icon"></div>
+                    <h3> Rainforest Adventure</h3>
+                    <p>Trek through Sri Lanka’s last tropical rainforest</p>
+                </div>
+            </div>
+            <div class="experience-card">
+                <img src="images/jaffna.jpg" alt="Wellness Retreats" class="experience-bg">
+                <div class="experience-content">
+                    <div class="experience-icon"></div>
+                    <h3>Island Escape</h3>
+                    <p>Uncover the charm of Sri Lanka's northern isles</p>
+                </div>
+            </div>
+            
         </div>
     </section>
 
     <!-- Journeys Section -->
     <section class="section" id="journeys">
-        <div class="section-title">
-            <h2>Handcrafted Sri Lanka Itineraries</h2>
-            <p>Our expert-designed journeys combine the best of Sri Lanka's landscapes and culture</p>
-        </div>
+        <h2 class="section-title">Handcrafted Sri Lanka Itineraries</h2>
         <div class="journeys-container">
             <div class="journeys-scroll">
                 <div class="journey-card">
-                    <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Golden Triangle" class="journey-image">
+                    <img src="images/temple.jpg" alt="Golden Triangle" class="journey-image">
                     <div class="journey-content">
-                        <h3>Golden Triangle</h3>
-                        <div class="journey-meta">
-                            <span>7 days</span>
+                        <h3 class="journey-title">Golden Triangle</h3>
+                        <div class="journey-duration">
+                            <i class="far fa-clock"></i> 7 days
+                        </div>
+                        <ul class="journey-highlights">
+                            <li>Ancient cities of Anuradhapura & Polonnaruwa</li>
+                            <li>Rock fortress of Sigiriya</li>
+                            <li>Dambulla Cave Temple</li>
+                            <li>Traditional village experience</li>
+                        </ul>
+                        <div class="journey-footer">
                             <span class="journey-price">From $1,200</span>
+                            <button class="journey-btn">Customize</button>
                         </div>
-                        <p>Anuradhapura, Polonnaruwa, and Sigiriya - the heart of ancient Sri Lanka.</p>
-                        <a href="#" class="journey-btn">Customize</a>
                     </div>
                 </div>
                 <div class="journey-card">
-                    <img src="https://images.unsplash.com/photo-1562613521-9eec6e199a74?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Blue & Green" class="journey-image">
+                    <img src="images/beach.jpg" alt="Blue & Green" class="journey-image">
                     <div class="journey-content">
-                        <h3>Blue & Green</h3>
-                        <div class="journey-meta">
-                            <span>5 days</span>
+                        <h3 class="journey-title">Blue & Green</h3>
+                        <div class="journey-duration">
+                            <i class="far fa-clock"></i> 5 days
+                        </div>
+                        <ul class="journey-highlights">
+                            <li>Beaches of Mirissa & Unawatuna</li>
+                            <li>Hill country train journey</li>
+                            <li>Tea plantations in Nuwara Eliya</li>
+                            <li>Whale watching excursion</li>
+                        </ul>
+                        <div class="journey-footer">
                             <span class="journey-price">From $950</span>
+                            <button class="journey-btn">Customize</button>
                         </div>
-                        <p>Beaches of the south combined with the lush hill country.</p>
-                        <a href="#" class="journey-btn">Customize</a>
                     </div>
                 </div>
                 <div class="journey-card">
-                    <img src="https://images.unsplash.com/photo-1597759981819-5a1c0e0b1a3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Leopard Trail" class="journey-image">
+                    <img src="images/safari.jpg" alt="Leopard Trail" class="journey-image">
                     <div class="journey-content">
-                        <h3>Leopard Trail</h3>
-                        <div class="journey-meta">
-                            <span>4 days</span>
-                            <span class="journey-price">From $850</span>
+                        <h3 class="journey-title">Leopard Trail</h3>
+                        <div class="journey-duration">
+                            <i class="far fa-clock"></i> 4 days
                         </div>
-                        <p>Wildlife safari adventure in Yala and Wilpattu national parks.</p>
-                        <a href="#" class="journey-btn">Customize</a>
-                    </div>
-                </div>
-                <div class="journey-card">
-                    <img src="https://images.unsplash.com/photo-1562613521-9eec6e199a74?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Spice Route" class="journey-image">
-                    <div class="journey-content">
-                        <h3>Spice Route</h3>
-                        <div class="journey-meta">
-                            <span>6 days</span>
-                            <span class="journey-price">From $1,100</span>
+                        <ul class="journey-highlights">
+                            <li>Safari in Yala National Park</li>
+                            <li>Wilpattu wildlife exploration</li>
+                            <li>Bird watching in Bundala</li>
+                            <li>Luxury tented camps</li>
+                        </ul>
+                        <div class="journey-footer">
+                            <span class="journey-price">From $1,500</span>
+                            <button class="journey-btn">Customize</button>
                         </div>
-                        <p>Culinary journey through Sri Lanka's spice gardens and markets.</p>
-                        <a href="#" class="journey-btn">Customize</a>
                     </div>
                 </div>
             </div>
-            <button class="scroll-arrow scroll-left"><i class="fas fa-chevron-left"></i></button>
-            <button class="scroll-arrow scroll-right"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="section testimonials" id="testimonials">
-        <div class="section-title">
-            <h2>Traveller Stories</h2>
-            <p>Hear from those who've experienced the magic of Sri Lanka</p>
-        </div>
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">Traveler Stories</h2>
         <div class="testimonial-container">
             <div class="testimonial-video">
-                <img src="https://images.unsplash.com/photo-1562613521-9eec6e199a74?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Traveler in Sri Lanka">
+                <img src="images/Train1.jpg" alt="Traveler in Sri Lanka">
                 <div class="play-btn">
-                    <i class="fas fa-play"></i>
+                    <i class="fas fa-play" style="color: white; font-size: 1.5rem; margin-left: 3px;"></i>
                 </div>
             </div>
-            <div class="testimonial-quote">
-                <i class="fas fa-quote-left"></i>
-                <p class="testimonial-text">Our journey through Sri Lanka with Serendib Escapes was nothing short of magical. From the ancient cities to the pristine beaches, every moment was perfectly curated. The guides were knowledgeable and made us feel like family.</p>
-                <div class="testimonial-author">Sarah & Michael Johnson</div>
-                <div class="testimonial-location">New York, USA | March 2023</div>
+            <div class="testimonial-content">
+                <blockquote class="testimonial-quote">
+                    Our journey through Sri Lanka with Serendib was nothing short of magical. From the ancient ruins to the pristine beaches, every moment was carefully curated to perfection. The local guides shared insights we would have never discovered on our own.
+                </blockquote>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>New York, USA</p>
+                        <div class="testimonial-location">
+                            <i class="fas fa-map-marker-alt"></i> Visited: Cultural Triangle & South Coast
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Instagram Section -->
-    <section class="section" id="gallery">
-        <div class="section-title">
-            <h2>#SerendibMoments</h2>
-            <p>Follow our community's adventures in Sri Lanka</p>
-        </div>
-        <div class="instagram-container">
-            <div class="instagram-post">
-                <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sri Lanka">
-                <div class="instagram-overlay">
-                    <div class="instagram-location">Sigiriya Rock</div>
-                    <div class="instagram-tag">@traveler_adventures</div>
-                </div>
-            </div>
-            <div class="instagram-post">
-                <img src="https://images.unsplash.com/photo-1597759981819-5a1c0e0b1a3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sri Lanka">
-                <div class="instagram-overlay">
-                    <div class="instagram-location">
+
+
+    <!-- Instagram
